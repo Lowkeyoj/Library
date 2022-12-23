@@ -3,28 +3,32 @@ const library = [];
 
 // takes in book name, author and pages then pushes it to the library
 const constructor ={ 
-    
-    construct:function(book, author, pages){
+index: 0,  
+construct:function(book, author, pages){
+     invoked = false;
      book = book.split(' ').join(' '); 
      book = {
       Book: book,
       Author: author,
       Pages: pages  
     }
-    return library.push(book);
-} }
+    library.push(book);
+     invoked = true;
+     return this.index ++;
+   } 
+}
 
 // displays the book name, author and how many pages
-const display =  {
+const display =  Object.create(constructor, {
     Display: function(index){
         for (key in library[index]){
             console.log(`${key}:${library[index][key]}`);
          }
         }
-    }
+    });
 
 
-// promps a form to add a new book    
+// prompts a form to add a new book    
 newBook = function(){
 const body = document.getElementsByTagName('body');
 const div = document.createElement('div');
@@ -50,7 +54,6 @@ btn.style.width = '4em';
 
 label.addEventListener('click', function() { input.focus()});
 label.for = 'Book'
-label.id = 'Book';
 label.textContent = 'Book';
 
 input.type = 'text';
@@ -85,19 +88,34 @@ form.append(con1,con2,con3,btn);
 
 div.append(form);
 
+
+form.style.width = 'inherit';
+form.style.padding = '10px';
 form.style.display = 'grid';
 form.style.gridtemplaterows = 'repeat(4, 1fr)';
 form.style.rowGap = '10px';
 body[0].appendChild(div);
 
+div.style.position = 'fixed';
 div.style.minHeight = '8rem';
-div.style.width = '12.5rem';
-div.style.position = 'relative';
+div.style.width = '14rem';
 div.style.left = '35%';
-div.style.zIndex = '1';
 div.style.borderStyle = 'solid';
 
+form.addEventListener('submit',test);
+
+    function test(event) {
+        let book = input.value;
+        let author = input2.value;
+        let pages = input3.value;
+        constructor.construct(book,author,pages);    
+        event.preventDefault();
+        div.remove();
+    }
+
+
 };  
+
 
 
 
