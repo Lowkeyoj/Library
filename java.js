@@ -1,12 +1,14 @@
 const body = document.getElementsByTagName('body');
 const library = [];
 const libraryContent = document.querySelector('.library');
+ 
+
 
 // takes in book name, author and pages then pushes it to the library
 const constructor ={ 
 index: 0,  
 construct: function(book, author, pages){
-     invoked = false;
+   //  invoked = false;
      book = book.split(' ').join(' '); 
      book = {
       Book: book,
@@ -14,15 +16,21 @@ construct: function(book, author, pages){
       Pages: pages  
     }
     library.push(book);
-     invoked = true;
+    // invoked = true;
+     display.Display(this.index);
+     
      return this.index ++;
+    
    } 
 }
 
 // displays the book name, author and how many pages
-const display =  {
-    Display: function(index){
+const display = Object.create(constructor); 
+    
+
+    display.Display = function(index){
     tableContainer = document.createElement('div');    
+    tableContainer.id = `tbcontainer-${this.index}`;
     libraryContent.append(tableContainer);
     let keys = Object.keys(library[index]);
     let value = Object.values(library[index]);
@@ -33,9 +41,17 @@ const display =  {
         pair.textContent = `${keys[i]} : ${value[i]}`
         tableContainer.append(container);
     }
- 
-    },
-};
+    let removeButton = document.createElement('button');  
+    removeButton.id = `tbcontainer-${this.index}`;
+    tableContainer.append(removeButton);
+    removeButton.addEventListener('click', function()
+    { if(tableContainer.id = removeButton.id){
+      return document.querySelector('div').remove();
+    }
+         } )
+    
+   };
+
 
 
 
@@ -128,7 +144,5 @@ form.addEventListener('submit',addToLibrary);
 };  
 
 
+     
 
-
-
-    
