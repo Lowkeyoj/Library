@@ -1,0 +1,37 @@
+#pop-up-form {
+ border-style: solid;
+ position: fixed;
+ min-height: 8rem;
+ width: 14rem;
+ left: 35%;
+ z-index: 1;
+}
+
+#popup-form {
+ width: inherit;
+ padding: 10px;
+ display: grid;
+ grid-template-rows: repeat(4,1fr);
+ row-gap: 10px;
+}
+
+#popup-form-button {
+ height: 2em;
+ width: 4em;
+}
+
+button[id^='tbcon'] {
+ height: 2em;
+ width: 4em;   
+}
+
+div[id^='tbcon'] {
+ display: grid;
+ border-style: solid;
+ border-color: black;
+ border-radius: 10px;
+ height: 14rem;
+ width: 10rem;
+ padding: 2rem;   
+}
+

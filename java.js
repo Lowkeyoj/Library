@@ -8,7 +8,7 @@ const libraryContent = document.querySelector('.library');
 const constructor ={ 
 index: 0,  
 construct: function(book, author, pages){
-   //  invoked = false;
+   
      book = book.split(' ').join(' '); 
      book = {
       Book: book,
@@ -16,7 +16,6 @@ construct: function(book, author, pages){
       Pages: pages  
     }
     library.push(book);
-    // invoked = true;
      display.Display(this.index);
      
      return this.index ++;
@@ -44,6 +43,8 @@ const display = Object.create(constructor);
     
     let removeButton = document.createElement('button');  
     removeButton.id = `tbcontainer-${this.index}`;
+    removeButton.for = `tbcontainer-${this.index}`;
+    
     tableContainer.append(removeButton);
     removeButton.addEventListener('click', function()
     { if(tableContainer.id = removeButton.id){
@@ -74,12 +75,12 @@ const con2 = document.createElement('div');
 const con3 = document.createElement('div');
 
 form.method = 'get';
+form.id = 'popup-form'
 
-
+btn.id = 'popup-form-button';
 btn.textContent = 'Submit';
 btn.type = 'submit';
-btn.style.height = '2em';
-btn.style.width = '4em';
+
 
 label.addEventListener('click', function() { input.focus()});
 label.for = 'Book'
@@ -117,20 +118,11 @@ form.append(con1,con2,con3,btn);
 
 div.append(form);
 
-
-form.style.width = 'inherit';
-form.style.padding = '10px';
-form.style.display = 'grid';
-form.style.gridtemplaterows = 'repeat(4, 1fr)';
-form.style.rowGap = '10px';
+;
 body[0].appendChild(div);
 
-div.style.zIndex ='1'
-div.style.position = 'fixed';
-div.style.minHeight = '8rem';
-div.style.width = '14rem';
-div.style.left = '35%';
-div.style.borderStyle = 'solid';
+
+div.id = 'pop-up-form';
 
 form.addEventListener('submit',addToLibrary);
 
