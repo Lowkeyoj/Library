@@ -41,12 +41,14 @@ const display = Object.create(constructor);
         pair.textContent = `${keys[i]} : ${value[i]}`
         tableContainer.append(container);
     }
+    
     let removeButton = document.createElement('button');  
     removeButton.id = `tbcontainer-${this.index}`;
     tableContainer.append(removeButton);
     removeButton.addEventListener('click', function()
     { if(tableContainer.id = removeButton.id){
-      return document.querySelector('div').remove();
+      document.querySelector(`#${tableContainer.id}`).remove();
+      delete document.querySelector(`#${tableContainer.id}`);
     }
          } )
     
