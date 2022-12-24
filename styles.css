@@ -1,3 +1,43 @@
+.header {
+ height: 20vh;
+ border-style: solid;
+ border-color: blue; 
+}
+
+.btn-container {
+ height: 10vh;
+ display: flex;
+ justify-content: space-between;
+ border-style: solid;
+ border-color: gold;
+ margin-top: 10px;   
+}
+
+.library {
+ display: flex;
+ gap: 10px;
+ height: 65vh;
+ border-style: solid;
+ border-color: crimson;
+ margin-top: 10px;   
+}
+
+.footer {
+ height: 5vh;
+ border-style: solid;
+ border-color: rebeccapurple;
+ margin-top: 5px;   
+}
+
+
+
+
+
+
+
+
+
+
 #pop-up-form {
  border-style: solid;
  position: fixed;
@@ -5,6 +45,7 @@
  width: 14rem;
  left: 35%;
  z-index: 1;
+ top: 5%;
 }
 
 #popup-form {
