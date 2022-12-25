@@ -53,9 +53,9 @@ const display = Object.create(constructor);
     
     
     readBtn.addEventListener('click',function(){
-    if(tableContainer.id === removeButton.id){
-        tableContainer.classList.toggle('read');
-      }    
+    
+        readBtn.parentNode.parentNode.classList.toggle('read');
+        
     })
 
 
@@ -67,10 +67,10 @@ const display = Object.create(constructor);
 
     tableContainer.append(btnCon);
     removeButton.addEventListener('click', function()
-    { if(tableContainer.id = removeButton.id){
-      document.querySelector(`#${tableContainer.id}`).remove();
-      delete document.querySelector(`#${tableContainer.id}`);
-    }
+    { 
+      removeButton.parentNode.parentNode.remove();
+      delete removeButton.parentNode.parentNode();
+    
          } )
     
    };
