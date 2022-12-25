@@ -108,6 +108,7 @@ div[id^='tbcon'] {
  padding: 2rem;   
 }
 
-div[id^='tbcon'].read {
+div[data-my-attribute].read {
  background-color: red;   
 }
+
