@@ -40,12 +40,32 @@ const display = Object.create(constructor);
         pair.textContent = `${keys[i]} : ${value[i]}`
         tableContainer.append(container);
     }
-    
+    let btnCon = document.createElement('div');
+    let readBtn = document.createElement('button');
     let removeButton = document.createElement('button');  
+    
+    btnCon.id ='btncon';
+    
+    
+    readBtn.id = `tbcontainer-${this.index}`;
+    readBtn.textContent = 'Read';
+
+    
+    
+    readBtn.addEventListener('click',function(){
+    if(tableContainer.id === removeButton.id){
+        tableContainer.classList.toggle('read');
+      }    
+    })
+
+
+    btnCon.append(readBtn,removeButton);
+    
     removeButton.id = `tbcontainer-${this.index}`;
     removeButton.for = `tbcontainer-${this.index}`;
-    
-    tableContainer.append(removeButton);
+    removeButton.textContent = 'Remove';
+
+    tableContainer.append(btnCon);
     removeButton.addEventListener('click', function()
     { if(tableContainer.id = removeButton.id){
       document.querySelector(`#${tableContainer.id}`).remove();

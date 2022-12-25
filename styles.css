@@ -1,29 +1,54 @@
 .header {
- height: 20vh;
+ display: flex;
+ min-height: 20vh;
  border-style: solid;
- border-color: blue; 
+ border-color: blue;
+ justify-content: center; 
 }
 
 .btn-container {
- height: 10vh;
+ min-height: 10vh;
  display: flex;
- justify-content: space-between;
+ justify-content: space-around;
  border-style: solid;
  border-color: gold;
- margin-top: 10px;   
+ margin-top: 10px;
+ align-items: center;   
+}
+
+.begin {
+
+}
+
+.middle-btn {
+
+}
+
+.end {
+ display: flex;
+ gap: 1em;
+ align-content: center;   
+}
+
+.end-btn {
+ display: grid;
+ align-content: center; 
 }
 
 .library {
+ padding: 10px;
  display: flex;
  gap: 10px;
- height: 65vh;
+ flex-wrap: wrap;
+ min-height: 65vh;
  border-style: solid;
  border-color: crimson;
- margin-top: 10px;   
+ margin-top: 10px;
+ justify-content: center;   
 }
 
 .footer {
- height: 5vh;
+ min-height: 5vh;
  border-style: solid;
  border-color: rebeccapurple;
  margin-top: 5px;   
@@ -44,7 +69,7 @@
  min-height: 8rem;
  width: 14rem;
  left: 35%;
- z-index: 1;
+ 
  top: 5%;
 }
 
@@ -58,12 +83,19 @@
 
 #popup-form-button {
  height: 2em;
- width: 4em;
+ width: 4.5em;
 }
+
+#btncon {
+ display: flex;
+ justify-content: space-between;   
+}
+
+
 
 button[id^='tbcon'] {
  height: 2em;
- width: 4em;   
+ width: 4.5em;   
 }
 
 div[id^='tbcon'] {
@@ -71,8 +103,11 @@ div[id^='tbcon'] {
  border-style: solid;
  border-color: black;
  border-radius: 10px;
- height: 14rem;
+ height: 12rem;
  width: 10rem;
  padding: 2rem;   
 }
 
+div[id^='tbcon'].read {
+ background-color: red;   
+}
