@@ -1,12 +1,14 @@
 const body = document.getElementsByTagName('body');
 const library = [];
 const libraryContent = document.querySelector('.library');
- 
+
 
 
 // takes in book name, author and pages then pushes it to the library
 const constructor ={ 
 index: 0,  
+cardCounter: 0,
+hasRead: 0,
 construct: function(book, author, pages){
    
      book = book.split(' ').join(' '); 
@@ -53,11 +55,14 @@ const display = Object.create(constructor);
     
     
     readBtn.addEventListener('click',function(){
-    
-        readBtn.parentNode.parentNode.classList.toggle('read');
         
+        this.parentNode.parentNode.classList.toggle('read');
+        if(this.parentNode.parentNode.className === 'read'){
+          constructor.hasRead++;
+        }else {constructor.hasRead--};
     })
 
+    
 
     btnCon.append(readBtn,removeButton);
     
@@ -69,8 +74,8 @@ const display = Object.create(constructor);
     removeButton.addEventListener('click', function()
     { 
       removeButton.parentNode.parentNode.remove();
-      delete removeButton.parentNode.parentNode();
-    
+      delete removeButton.parentNode.parentNode;
+      constructor.cardCounter--;
          } )
     
    };
@@ -153,10 +158,15 @@ form.addEventListener('submit',addToLibrary);
         constructor.construct(book,author,pages);    
         event.preventDefault();
         div.remove();
-    }
-
+        constructor.cardCounter++;
+    };
+   invoked = true;
+   
+   
+   
 };  
 
 
      
+
 
